@@ -1,0 +1,22 @@
+
+
+1]
+	select * from CUSTOMERS 
+	where Rating >= ANY 
+	(select rating from CUSTOMERS where Snum in 
+	(select snum from salespeople where sname='Serres' )); 
+
+2]
+	select snum from salespeople 
+	where (snum,city )not in 
+	(select snum,city from CUSTOMERS);
+3]
+	select * from ORDERS 
+	where amt > ANY 
+	(select amt from ORDERS where Cnum in 
+	(select Cnum from CUSTOMERS where City='London'));
+4]
+	select * from ORDERS 
+	where amt > 
+	(select min(amt) from CUSTOMERS natural join ORDERS where city='London');
+

@@ -1,0 +1,14 @@
+
+1]
+	select * from ORDERS where cnum=
+	(select cnum from CUSTOMERS where cname='Cisneros');
+  
+2]  
+	select rating ,cname from CUSTOMERS
+	where cnum in
+	(select cnum from ORDERS where AMT>
+	(select round(avg(Amt)) from ORDERS));
+3]
+	select snum, sum(amt) from ORDERS 
+	group by snum 
+	having sum(amt)> (select max(amt) from ORDERS );

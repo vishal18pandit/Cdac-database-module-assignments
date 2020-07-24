@@ -1,0 +1,15 @@
+
+1]
+	select cname,onum from ORDERS,CUSTOMERS where CUSTOMERS.snum=ORDERS.snum;
+	select * from salespeople;
+2]
+	select salespeople.sname,CUSTOMERS.Cname,ORDERS.Onum from ORDERS,CUSTOMERS,salespeople 
+	where salespeople.snum=CUSTOMERS.Snum and CUSTOMERS.Snum=ORDERS.Snum;
+3]
+	select salespeople.sname,CUSTOMERS.Cname,salespeople.comm from CUSTOMERS,salespeople
+	where salespeople.snum=CUSTOMERS.snum having comm>0.12;
+4]
+	select salespeople.sname,CUSTOMERS.cname,CUSTOMERS.Rating,salespeople.comm 
+	from CUSTOMERS,salespeople 
+	where  salespeople.snum=CUSTOMERS.Snum having rating>100;
+
