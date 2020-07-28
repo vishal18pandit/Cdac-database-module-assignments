@@ -1,0 +1,47 @@
+show databases;
+
+
+use shop;
+select * from CUSTOMERS;
+
+#1
+	create table Multicust as select * from salespeople
+	where snum in 
+	(select snum from CUSTOMERS group by Snum having count(snum)>1); 
+
+	select * from Multicust;
+    
+    
+#2
+select * from ORDERS;
+select * from CUSTOMERS;
+
+INSERT INTO CUSTOMERS 
+VALUES(2012,'rakesh','bikaner',500,1005);
+
+ select * from CUSTOMERS;
+ 
+ # problem
+ 
+ DELETE from CUSTOMERS 
+ WHERE cnum = ANY 
+ (SELECT cnum FROM ORDERS WHERE cnum 
+ NOT IN 
+ (SELECT cnum FROM CUSTOMERS)); 
+	
+ 
+ #3
+ select * from salespeople;
+ update salespeople set comm=comm*1.20
+ where snum in 
+ (select snum from ORDERS where Amt>3000);
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

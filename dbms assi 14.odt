@@ -1,0 +1,27 @@
+show databases;
+use shop;
+show tables;
+select * from emp4;
+show tables;
+select * from salespeople;
+#1
+	insert into salespeople (city,sname,comm,snum)values('San Jose','Blanco',null,1100);
+#2
+	select * from CUSTOMERS;
+	select * from ORDERS;
+	delete from ORDERS where cnum=
+	(select cnum from CUSTOMERS where cname='Clemens');
+
+#3
+	update CUSTOMERS set rating =rating+100 where city='Rome';
+    
+    
+#4
+
+update CUSTOMERS set snum =
+(select snum from salespeople where sname='Motika')
+where snum =
+(select snum from salespeople where sname='Serres'); 
+
+   
+	
