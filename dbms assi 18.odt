@@ -1,0 +1,29 @@
+
+
+
+#1
+
+
+CREATE TABLE cityorders
+
+SELECT onum,amt,snum,cnum,city
+FROM ORDERS
+NATURAL JOIN CUSTOMERS;
+
+
+ALTER TABLE cityorders ADD CONSTRAINT onum_fk
+FOREIGN key(onum) REFERENCES ORDERS(onum);
+
+ DESC cityorders;
+ 
+ 
+ #2
+ ALTER TABLE cityorders ADD
+FOREIGN key(cnum) REFERENCES CUSTOMERS(cnum);
+
+
+
+ALTER TABLE cityorders ADD prev_o int(4);
+
+ALTER TABLE cityorders ADD FOREIGN KEY(prev_o) REFERENCES cityorders(prev_o);
+

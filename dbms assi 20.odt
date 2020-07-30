@@ -1,0 +1,68 @@
+use shop;
+
+#1
+			#1
+			Create View Dailyorders
+			as Select Distinct cnum, snum, onum, odate from ORDERS;
+			select * from Dailyorders;
+			#the above view is created and we can perform DML operations on it
+			#insert, delete, update
+
+
+			#2
+			Create View Custotals
+			as Select cname, Sum(amt) Sum_Amt from ORDERS, CUSTOMERS
+			where ORDERS.cnum=CUSTOMERS.cnum
+			Group by cname;
+
+			 #Views are not updatable which consists of natural join.
+			 # therefore update is not possible in above view
+			 
+			 
+			 #3
+				Create view Thirdorders
+				as Select * from Dailyorders where odate = '1990-10-03';
+
+				 #not updatable due to distinct keyword in dailyorders;
+			#4
+				Create view Nullcities
+				as Select snum, sname, city
+				from salespeople
+				where city is NULL
+				OR sname BETWEEN 'A' and 'MZ';
+				
+				#DML command are posible update ,delete,insert 
+				
+#2
+
+	CREATE VIEW commission AS
+	SELECT snum, comm
+	FROM salespeople
+	WHERE comm BETWEEN .10 AND .20;
+
+	 SELECT * FROM commission;
+	 
+	INSERT INTO commission VALUES(3000,.4);
+
+	SELECT * FROM commission;
+ 
+ 
+
+ 
+ #3 
+CREATE TABLE IF NOT EXISTS NEW_ORDERS
+(
+Onum INT(4),
+Amt FLOAT(7,2),
+Odate DATE default CURRENT_TIMESTAMP,
+Cnum INT(4),
+Snum INT(4)
+);
+
+create view Entryorders as 
+select * from NEW_ORDERS;
+ 
+ 
+ 
+ 
+ 

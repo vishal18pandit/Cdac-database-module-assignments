@@ -1,0 +1,38 @@
+
+use shop;
+#1
+	CREATE VIEW high_rat AS
+	SELECT * FROM CUSTOMERS
+	WHERE rating= (SELECT max(rating) FROM CUSTOMERS);
+
+	SELECT * FROM high_rat;
+    
+#2
+select * from salespeople;
+
+create view count_city as 
+select count(snum),city from salespeople group by city;
+
+select * from count_city;
+
+#3
+select * from ORDERS;
+
+create view  avg_order as
+select sname, avg(onum),count(onum)
+from salespeople join ORDERS u using (snum)
+group by sname;
+
+select * from avg_order;
+
+
+#4
+create view mul_order as
+SELECT sname,cname
+FROM salespeople
+JOIN CUSTOMERS USING (snum);
+
+
+select * from mul_order;
+
+

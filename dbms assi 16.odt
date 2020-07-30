@@ -1,0 +1,20 @@
+
+#ASSI 16
+
+#1
+	CREATE INDEX i_order ON ORDERS(odate);
+	show full tables;
+	show indexes from ORDERS;
+	DESC ORDERS;
+
+#2
+ALTER TABLE ORDERS add PRIMARY KEY(onum);
+desc ORDERS;
+
+#3
+ 
+CREATE INDEX I_DATE ON ORDERS(odate);
+
+
+#4
+ALTER TABLE CUSTOMERS MODIFY rating PRIMARY KEY;

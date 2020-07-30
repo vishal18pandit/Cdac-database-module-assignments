@@ -1,0 +1,49 @@
+use shop;
+select * from ORDERS;
+#1
+	create table ORDERS1 
+	(
+		onum int (4),
+		cnum int (4),
+		sname varchar(15),
+		odate date not null
+	);
+	select * from ORDERS1;
+
+
+
+
+#2
+create table salespeople1 
+(
+comm int(4) default 10,
+snum int(4) primary key,
+sname varchar (15) check (substr(upper(sname),1,1) between 'A' and 'M')
+);
+select * from salespeople1;
+insert into salespeople1 values (20,22,'Back'), (30,82,'Chomas'), (50,32,'Acott'), (88,62,'Dames'), (64,23,'Forn');
+select * from salespeople1 order by sname;
+
+
+#3
+	CREATE TABLE ORDERS3
+	( 
+		onum int(4) not null, 
+		amt float(7,2), 
+		odate date, 
+		cnum int(4) not null, 
+		snum int(4) not null, 
+		CONSTRAINT on_cn_sn check(onum>cnum AND cnum>snum) 
+	);
+
+
+
+INSERT INTO orders12
+VALUES(10,10,'1990-01-12',10,10),(10,10,'1990-02-11',10,10);
+
+# check constraint (ORAD178.ON_CN_SN) violated
+
+
+
+
+
